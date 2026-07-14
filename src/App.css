@@ -1,0 +1,96 @@
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2rem;
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.app__header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Small action toolbar in the header */
+.app__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.app__toolbar button {
+  padding: 0.45rem 0.9rem;
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--pane-header-bg);
+  color: inherit;
+}
+
+.app__toolbar button:hover {
+  filter: brightness(0.97);
+}
+
+/* Transient feedback (e.g. "Link copied") */
+.app__notice {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Hidden file input triggered by the Import button */
+.app__file-input {
+  display: none;
+}
+
+/* Shared prompt box shown above both panes */
+.app__prompt {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.app__prompt-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.app__prompt-input {
+  width: 100%;
+  min-height: 4rem;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--pane-bg);
+  resize: vertical;
+}
+
+.app__prompt-input:focus {
+  outline: none;
+  border-color: var(--text-muted);
+  background: var(--input-focus-bg);
+}
+
+/* Two equal columns on wide screens */
+.app__panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Stack the panes vertically on narrow screens */
+@media (max-width: 800px) {
+  .app__panes {
+    grid-template-columns: 1fr;
+  }
+}

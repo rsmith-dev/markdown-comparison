@@ -1,0 +1,102 @@
+.pane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* allow the pane to shrink inside a grid/flex row */
+  border: 1px solid var(--border, #d0d0d0);
+  border-radius: 8px;
+  background: var(--pane-bg, #fff);
+  overflow: hidden;
+}
+
+.pane__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border, #d0d0d0);
+  background: var(--pane-header-bg, #f6f6f6);
+}
+
+.pane__label {
+  flex: 1;
+  min-width: 0;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.pane__label:focus {
+  outline: none;
+  border-color: var(--border, #d0d0d0);
+  background: var(--input-focus-bg, #fff);
+  color: inherit;
+}
+
+.pane__actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.pane__actions button {
+  padding: 0.3rem 0.6rem;
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border, #d0d0d0);
+  border-radius: 4px;
+  background: var(--btn-bg, #fff);
+  color: inherit;
+}
+
+.pane__actions button:hover {
+  background: var(--btn-hover, #f0f0f0);
+}
+
+.pane__editor {
+  flex: 1;
+  min-height: 20rem;
+  padding: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border: none;
+  resize: vertical;
+  background: var(--pane-bg, #fff);
+  color: inherit;
+}
+
+.pane__editor:focus {
+  outline: none;
+}
+
+.pane__preview {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  overflow-wrap: anywhere; /* prevent long tokens from overflowing the pane */
+  max-height: 70dvh;
+  overflow-y: auto; /* each preview scrolls independently */
+}
+
+/* Keep rendered markdown tidy inside the pane */
+.pane__preview :first-child {
+  margin-top: 0;
+}
+
+.pane__preview pre {
+  overflow-x: auto;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: var(--code-bg, #f4f4f4);
+}
+
+.pane__preview table {
+  border-collapse: collapse;
+}
+
+.pane__preview th,
+.pane__preview td {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border, #d0d0d0);
+}
